@@ -9,7 +9,7 @@ export async function getAsteroids() {
         params: {
           start_date: '2024-10-05',
           end_date: '2024-10-05',
-          api_key: import.meta.env.VITE_API_TOKEN
+          api_key: import.meta.env.NASA_API_KEY
         }
       });
 
