@@ -58,14 +58,11 @@ export class NEObject {
         this.earthDistance = earthDistance;
         this.isAsteroid = isAsteroid;
 
-        this.angle = 0;
+        this.angle = Math.floor(Math.random() * 100);
 
         this._sceneObject = new THREE.Mesh(this._sceneObjectGeometry, this._sceneObjectMaterial);
         this._sceneObject.name = name;
         this.inclination = inclination;
-
-        this.actualInclination = inclination;
-        this.isAscending = false;
 
         if (isAsteroid) {
             this._sceneObject.castShadow = true;
@@ -92,7 +89,7 @@ export class NEObject {
     get _sceneObjectMaterial() {
         if (this.isAsteroid) {
             return new THREE.MeshBasicMaterial({
-                color: getRandomColor(),
+                color: 0xffffff,
                 roughness: 0.8
             });
         }
@@ -116,13 +113,13 @@ export class NEObject {
         );
 
         // Gera os pontos ao longo da curva
-        const points = this.orbitCurve.getPoints(100);  // 100 pontos para suavizar
+        const points = this.orbitCurve.getPoints(150);  // 100 pontos para suavizar
 
         // Converte os pontos em uma geometria de linha
         const orbitGeometry = new THREE.BufferGeometry().setFromPoints(points);
 
         // Cria o material da linha
-        const orbitMaterial = new THREE.LineBasicMaterial({ color: 0xffffff });
+        const orbitMaterial = new THREE.LineBasicMaterial({ color: 0x707070 });
         orbitMaterial.isOrbit = true;
 
         // Cria a linha (órbita)
