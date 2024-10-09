@@ -151,12 +151,6 @@ const raycaster = new THREE.Raycaster();
 
 // Função para lidar com o evento de clique
 async function onObjectClicked(event) {
-  if (!passedTutorial) {
-    $('#close-modal-button').show();
-    $('#hide-button').hide();
-    passedTutorial = true;
-  }
-
   // 3.1 Atualiza a posição do mouse para os valores de coordenadas normalizadas
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -182,6 +176,11 @@ async function onObjectClicked(event) {
 
     if (index == null) return;
 
+    if (!passedTutorial) {
+      $('#close-modal-button').show();
+      $('#hide-button').hide();
+      passedTutorial = true;
+    }
 
     if(intersects[0].object.isAsteroid){
       document.getElementById('loader').style.background='#06060696';
