@@ -11,7 +11,7 @@ export async function sendMessage(prompt) {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${import.meta.env.OPENAI_API_KEY}` // Chave da API
+                    Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}` // Chave da API
                 }
             }
         );

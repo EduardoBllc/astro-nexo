@@ -1,7 +1,7 @@
 import $ from "jquery";
 import * as THREE from 'three';
-import { mouse, camera, scene, resetCameraPosition } from '../main.js';
-import { sendMessage } from "./api/openai.js";
+import { mouse, camera, scene } from '../canva_controllers.js';
+import { sendMessage } from "../api/openai.js";
 const fixed_data = {
   'Sun': {
     mass: 'Aproximadamente 1,989 × 10³⁰ kg (99,86% da massa total do Sistema Solar).',
